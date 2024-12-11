@@ -1,0 +1,103 @@
+<header>
+    <div class="wrapper-bg header-container">
+        <a tabindex="0" aria-label="Acadia logo link" href="/" class="logo" title="Acadia logo">ACADIA</a>
+
+        <nav>
+            <ul>
+                <!-- <li>
+                    <a tabindex="0" href="#" aria-label="Blog">BLOG</a>
+                </li> -->
+                <li>
+                    <a tabindex="0" href="#" aria-label="Shop">SHOP</a>
+                </li>
+                <!-- <li>
+                    <a tabindex="0" href="#" aria-label="Portfolio">PORTFOLIO</a>
+                </li> -->
+                <li>
+                    <a tabindex="0" href="/about" aria-label="About">ABOUT</a>
+                </li>
+                <li>
+                    <a tabindex="0" href="/contact" aria-label="Contact">CONTACT</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-social-media">
+            <ul>
+                <li>
+                    <a tabindex="0" href="#" aria-label="Link for x previously twitter" title="X link"><i class="fa-brands fa-x-twitter"></i></a>
+                </li>
+                <li>
+                    <a tabindex="0" href="#" aria-label="Link for Facebook" title="Facebook link"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a tabindex="0" href="#" aria-label="Link for Instagram" title="Instagram link"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<style>
+    header{
+        width: 100%;
+        padding: 1rem 0 3rem 0;
+    }
+    .header-container{
+        display: flex;
+        align-items: center;
+    }
+    .header-container .logo{
+        font-weight: 800;
+        letter-spacing: 4.5px;
+        background-color: #e5e5e5;
+        padding: 5px 10px;
+        border: 1px solid #000;
+        margin-right: 3.5rem;
+    }
+    .header-container nav ul li{
+        margin-right: 1.25rem;
+    }
+    .header-container nav ul li:last-child{
+        margin-right: 0;
+    }
+    .header-container nav ul li a{
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        position: relative;
+    }
+    .header-container nav ul li a:after{
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        background-color: #000;
+        width: 0;
+        height: 0;
+        transition: all 0.2s ease-in;
+    }
+    .header-container nav ul li,
+    .header-social-media ul li{
+        display: inline-block;
+    }
+    .header-social-media{
+        margin-left: auto;
+        justify-self: flex-end;
+    }
+    .header-social-media ul li{
+        margin-right: 1rem;
+    }
+    .header-social-media ul li:last-child{
+        margin-right: 0;
+    }
+    @media screen and (min-width: 821px){
+        .header-container .logo:hover{
+            text-decoration: none;
+        }
+        .header-container nav ul li a:hover:after{
+            width: 100%;
+            height: 2px;
+        }
+    }
+</style>
