@@ -292,8 +292,10 @@ import Layout from '../layouts/Layout.astro';
 	}
 	form input[type="button"]{
 		padding: 1rem 10px;
+		color: #fff;
 		letter-spacing: 1px;
 		cursor: pointer;
+		background-color: #000;
 		transition: all 0.3s ease;
 	}
 	form input[type="button"]::placeholder{
@@ -408,6 +410,14 @@ import Layout from '../layouts/Layout.astro';
 			width: 100%;
 			object-position: top;
 		}
+		form{
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem 0;
+			align-items: center;
+		}
+		form input[type="email"]{width: 100%;margin-right: 0;}
+		form input[type="button"]{width: 50%;}
 	}
 	@media screen and (max-width: 490px){
 		.hero-container{height: 525px;}
