@@ -2,6 +2,40 @@
     <div class="wrapper-bg header-container">
         <a tabindex="0" aria-label="Acadia logo link" href="/" class="logo" title="Acadia logo">ACADIA</a>
 
+        <nav class="desktop-el">
+            <ul>
+                <li>
+                    <a tabindex="0" href="#" aria-label="Shop">SHOP</a>
+                </li>
+                <li>
+                    <a tabindex="0" href="/about" aria-label="About">ABOUT</a>
+                </li>
+                <li>
+                    <a tabindex="0" href="/contact" aria-label="Contact">CONTACT</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-social-media desktop-el">
+            <ul>
+                <li>
+                    <a tabindex="0" href="#" aria-label="Link for x previously twitter" title="X link"><i class="fa-brands fa-x-twitter"></i></a>
+                </li>
+                <li>
+                    <a tabindex="0" href="#" aria-label="Link for Facebook" title="Facebook link"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a tabindex="0" href="#" aria-label="Link for Instagram" title="Instagram link"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <button class="hamburger-icon-wrapper">
+            <span class="hamburger-icon"></span>
+        </button>
+    </div>
+
+    <div class="mobile-nav">
         <nav>
             <ul>
                 <li>
@@ -37,6 +71,7 @@
         width: 100%;
         padding: 1rem 0 3rem 0;
     }
+    .mobile-nav{display: none;}
     .header-container{
         display: flex;
         align-items: center;
@@ -94,4 +129,83 @@
             height: 2px;
         }
     }
+    @media screen and (min-width: 481px){
+        .hamburger-icon-wrapper{display: none;}
+    }
+    @media screen and (max-width: 480px){
+        .header-container{justify-content: space-between;}
+        .desktop-el{display: none;}
+
+        .mobile-nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            opacity: 0;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            transform: translate(100%,0);
+            background: #fff;
+            z-index: 4;
+            transition: all 0.3s ease-out;
+        }
+        .mobile-nav.show-nav{ opacity: 0.98;transform: translateY(0); }
+        .hamburger-icon-wrapper{
+            background: transparent;
+            border: 0;
+            padding: 1.25rem 0.9rem;
+            z-index: 10;
+        }
+        .hamburger-icon{ display: block;position: relative; }
+        .hamburger-icon,
+        .hamburger-icon::before,
+        .hamburger-icon::after{
+            /* width: 1.75rem; */
+            width: 2.25rem;
+            height: 2px;
+            background: #000;
+            border-radius: 30px;
+            transition: transform 300ms ease-in-out, opacity 200ms linear;
+        }
+        .hamburger-icon::before,
+        .hamburger-icon::after{ content: '';position: absolute;left: 0; }
+        .hamburger-icon::before{bottom: 9px;}
+        .hamburger-icon::after{top: 9px;}
+        .animate{ transform: rotate(45deg); }
+        .animate::before{ opacity: 0; }
+        .animate::after{ transform: rotate(90deg) translate(-9px); }
+        
+    }
 </style>
+<script>
+    const mobileOnly = window.matchMedia('(max-width: 900px)');
+    const openNavBtn = document.querySelector('.hamburger-icon-wrapper');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const openIcon = document.querySelector('.hamburger-icon');
+
+    function openNavMenu(){
+        openIcon.classList.toggle('animate');
+        mobileNav.classList.toggle('show-nav');
+
+        // const navAnchorTag = document.querySelectorAll('.nav-link-anchor')
+
+        // if(mobileNav.classList.contains('show-nav')){
+        //     navAnchorTag.forEach((el) => {
+        //         el.setAttribute('tabindex', '0')
+        //     })
+        // } else{
+        //     navAnchorTag.forEach((el) => {
+        //         el.setAttribute('tabindex', '-1')
+        //     })
+        // }
+    }
+
+    openNavBtn.addEventListener('click', openNavMenu);
+    openNavBtn.addEventListener('keydown', (event) =>{
+        if(event.key == 13){
+            openNavMenu();
+        }
+    });
+</script>
