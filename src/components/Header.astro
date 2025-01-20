@@ -138,6 +138,7 @@
 
         .mobile-nav{
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: fixed;
@@ -176,7 +177,9 @@
         .animate{ transform: rotate(45deg); }
         .animate::before{ opacity: 0; }
         .animate::after{ transform: rotate(90deg) translate(-9px); }
-        
+        .header-social-media{margin-left: 0;}
+        .mobile-nav ul li a{font-size: 1.25rem;}
+        .mobile-nav nav ul li{margin-bottom: 1rem;}
     }
 </style>
 <script>
